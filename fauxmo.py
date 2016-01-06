@@ -27,7 +27,7 @@ THE SOFTWARE.
 # For a complete discussion, see http://www.makermusings.com
 
 import email.utils
-import requests
+#import requests
 import select
 import socket
 import struct
@@ -365,13 +365,13 @@ class rest_api_handler(object):
         self.off_cmd = off_cmd
 
     def on(self):
-        r = requests.get(self.on_cmd)
-        return r.status_code == 200
-
+        print self.on_cmd
+        print "On"
+        
     def off(self):
-        r = requests.get(self.off_cmd)
-        return r.status_code == 200
-
+        print self.off_cmd
+        print "Off"
+        
 
 # Each entry is a list with the following elements:
 #
@@ -384,8 +384,11 @@ class rest_api_handler(object):
 # list will be used.
 
 FAUXMOS = [
-    ['office lights', rest_api_handler('http://192.168.5.4/ha-api?cmd=on&a=office', 'http://192.168.5.4/ha-api?cmd=off&a=office')],
-    ['kitchen lights', rest_api_handler('http://192.168.5.4/ha-api?cmd=on&a=kitchen', 'http://192.168.5.4/ha-api?cmd=off&a=kitchen')],
+    ['one', rest_api_handler(4478259,4478268)],
+    ['two', rest_api_handler(4478403,4478412)],
+    ['three', rest_api_handler(4478723,4478732)],
+    ['four', rest_api_handler(4480259,4480268)],
+    ['five', rest_api_handler(4486403,4486412)],
 ]
 
 
